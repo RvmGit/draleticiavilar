@@ -1,0 +1,1960 @@
+/* ========================================
+   BASE
+======================================== */
+:root {
+    --cor-texto: #302d2b;
+    --cor-texto-suave: #696360;
+    --cor-destaque: #8b6f61;
+    --cor-destaque-escura: #70564a;
+    --cor-fundo: #ffffff;
+    --cor-fundo-suave: #f7f3ef;
+    --cor-borda: #e6dfda;
+    --cor-footer: #302d2b;
+    --largura: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+::selection {
+    background: #d9cbc3;
+    color: var(--cor-texto);
+}
+
+/* ========================================
+   CABEÇALHO
+======================================== */
+header {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.96);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(48, 45, 43, 0.08);
+    backdrop-filter: blur(10px);
+}
+
+nav {
+    max-width: var(--largura);
+    min-height: 82px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.logo {
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    color: var(--cor-texto);
+    white-space: nowrap;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.menu a {
+    position: relative;
+    padding: 8px 0;
+    text-decoration: none;
+    color: #5c5754;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.25s ease;
+}
+
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: 1px;
+    height: 1px;
+    background: var(--cor-destaque);
+    transition: right 0.25s ease;
+}
+
+.menu a:hover {
+    color: var(--cor-destaque);
+}
+
+.menu a:hover::after {
+    right: 0;
+}
+
+.botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 23px;
+    border-radius: 999px;
+    text-decoration: none;
+    background: var(--cor-destaque);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    box-shadow: 0 6px 18px rgba(112, 86, 74, 0.14);
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.botao:hover {
+    background: var(--cor-destaque-escura);
+    transform: translateY(-2px);
+    box-shadow: 0 9px 22px rgba(112, 86, 74, 0.2);
+}
+
+/* ========================================
+   ELEMENTO AUXILIAR
+======================================== */
+.subtitulo {
+    margin-bottom: 18px;
+    color: var(--cor-destaque);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.2px;
+}
+
+/* ========================================
+   HERO
+======================================== */
+.hero {
+    min-height: calc(100vh - 82px);
+    display: flex;
+    align-items: center;
+    padding: 76px 30px;
+    background: var(--cor-fundo-suave);
+    overflow: hidden;
+}
+
+.hero-conteudo {
+    width: 100%;
+    max-width: var(--largura);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    align-items: center;
+    gap: 72px;
+}
+
+.hero-texto {
+    max-width: 570px;
+}
+
+.hero h1 {
+    margin-bottom: 24px;
+    color: var(--cor-texto);
+    font-size: clamp(44px, 5vw, 68px);
+    line-height: 1.04;
+    font-weight: 500;
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--cor-destaque);
+}
+
+.hero-descricao {
+    max-width: 500px;
+    margin-bottom: 10px;
+    color: var(--cor-texto-suave);
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.hero-imagem {
+    display: flex;
+    justify-content: center;
+}
+
+.hero-imagem img {
+    width: min(100%, 500px);
+    height: 600px;
+    object-fit: cover;
+    border: 1px solid rgba(48, 45, 43, 0.08);
+    transform: translateX(65px);
+    box-shadow: 0 24px 55px rgba(48, 45, 43, 0.1);
+}
+
+/* ========================================
+   SOBRE
+======================================== */
+.sobre {
+    max-width: var(--largura);
+    margin: 0 auto;
+    padding: 120px 30px;
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    align-items: center;
+    gap: 100px;
+}
+
+.sobre-imagem {
+    display: flex;
+    justify-content: center;
+}
+
+.sobre-imagem img {
+    width: min(100%, 480px);
+    height: 560px;
+    object-fit: cover;
+    border: 1px solid rgba(48, 45, 43, 0.08);
+}
+
+.sobre-texto {
+    max-width: 560px;
+}
+
+.sobre-texto h2 {
+    margin-bottom: 28px;
+    color: var(--cor-texto);
+    font-size: clamp(36px, 4vw, 48px);
+    line-height: 1.12;
+    font-weight: 500;
+    letter-spacing: -1.2px;
+}
+
+.sobre-texto p:not(.subtitulo) {
+    margin-bottom: 18px;
+    color: var(--cor-texto-suave);
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+/* ========================================
+   ESPECIALIDADES
+======================================== */
+.especialidades {
+    padding: 120px 30px;
+    background: var(--cor-fundo-suave);
+}
+
+.especialidades-cabecalho {
+    max-width: 720px;
+    margin: 0 auto 62px;
+    text-align: center;
+}
+
+.especialidades-cabecalho h2 {
+    color: var(--cor-texto);
+    font-size: clamp(36px, 4vw, 48px);
+    line-height: 1.12;
+    font-weight: 500;
+    letter-spacing: -1px;
+}
+
+.especialidades-cards {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.especialidade-card {
+    min-height: 330px;
+    padding: 42px 38px;
+    background: #fff;
+    border: 1px solid var(--cor-borda);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.especialidade-card:hover {
+    transform: translateY(-5px);
+    border-color: #d9cec7;
+    box-shadow: 0 18px 40px rgba(48, 45, 43, 0.08);
+}
+
+.especialidade-card h3 {
+    margin-bottom: 20px;
+    color: var(--cor-texto);
+    font-size: 25px;
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: -0.4px;
+}
+
+.especialidade-card p {
+    margin-bottom: 0;
+    color: var(--cor-texto-suave);
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+/* Mantém compatibilidade caso números sejam usados futuramente */
+.especialidade-numero {
+    margin-bottom: 35px;
+    color: var(--cor-destaque);
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+/* ========================================
+   DESTAQUE
+======================================== */
+.destaque {
+    position: relative;
+    min-height: 520px;
+    padding: 100px 30px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--cor-destaque);
+}
+
+.destaque::before,
+.destaque::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.destaque::before {
+    width: 420px;
+    height: 420px;
+    top: -260px;
+    left: -180px;
+}
+
+.destaque::after {
+    width: 500px;
+    height: 500px;
+    right: -280px;
+    bottom: -320px;
+}
+
+.destaque-conteudo {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.destaque .subtitulo {
+    color: #f3e7e0;
+}
+
+.destaque h2 {
+    margin-bottom: 28px;
+    color: #fff;
+    font-size: clamp(38px, 5vw, 62px);
+    line-height: 1.08;
+    font-weight: 400;
+    letter-spacing: -1.5px;
+}
+
+.destaque h2 span {
+    display: block;
+    margin-top: 12px;
+    font-size: 0.58em;
+    font-style: italic;
+    letter-spacing: 0;
+}
+
+.destaque-conteudo > p:not(.subtitulo) {
+    max-width: 620px;
+    margin: 0 auto;
+    color: #f3e7e0;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* ========================================
+   FAQ
+======================================== */
+.duvidas {
+    padding: 120px 30px;
+    background: #fff;
+}
+
+.duvidas-conteudo {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.duvidas-cabecalho {
+    max-width: 680px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.duvidas-cabecalho h2 {
+    margin-bottom: 18px;
+    color: var(--cor-texto);
+    font-size: clamp(36px, 4vw, 48px);
+    line-height: 1.12;
+    font-weight: 500;
+    letter-spacing: -1px;
+}
+
+.duvidas-cabecalho > p:last-child {
+    color: var(--cor-texto-suave);
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.faq {
+    border-top: 1px solid var(--cor-borda);
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.faq-pergunta {
+    width: 100%;
+    padding: 26px 4px;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    text-align: left;
+    font-family: inherit;
+    color: var(--cor-texto);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.faq-pergunta:hover {
+    color: var(--cor-destaque);
+}
+
+.faq-icone {
+    flex: 0 0 auto;
+    color: var(--cor-destaque);
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.faq-resposta {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.faq-resposta p {
+    padding: 0 45px 26px 4px;
+    color: var(--cor-texto-suave);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.faq-item.ativo .faq-resposta {
+    max-height: 300px;
+}
+
+.faq-item.ativo .faq-icone {
+    transform: rotate(45deg);
+}
+
+/* ========================================
+   AGENDAMENTO / CONTATO
+======================================== */
+.agendamento {
+    padding: 120px 30px;
+    background: var(--cor-fundo-suave);
+}
+
+.agendamento-conteudo {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: 90px;
+}
+
+.agendamento-texto {
+    max-width: 500px;
+}
+
+.agendamento-texto h2 {
+    margin-bottom: 22px;
+    color: var(--cor-texto);
+    font-size: clamp(38px, 4.5vw, 52px);
+    line-height: 1.08;
+    font-weight: 500;
+    letter-spacing: -1.2px;
+}
+
+.agendamento-texto > p:last-child {
+    color: var(--cor-texto-suave);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.agendamento-contato {
+    border-top: 1px solid #d8d0cb;
+}
+
+.contato-item {
+    display: grid;
+    grid-template-columns: 105px minmax(0, 1fr) 25px;
+    align-items: center;
+    gap: 20px;
+    min-height: 78px;
+    padding: 18px 5px;
+    border-bottom: 1px solid #d8d0cb;
+    text-decoration: none;
+    color: var(--cor-texto);
+    transition: padding-left 0.25s ease, background 0.25s ease;
+}
+
+.contato-item:hover {
+    padding-left: 14px;
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.contato-label {
+    color: var(--cor-destaque);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.contato-valor {
+    color: #44403e;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.contato-seta {
+    color: var(--cor-destaque);
+    font-size: 19px;
+    text-align: right;
+    transition: transform 0.25s ease;
+}
+
+.contato-item:hover .contato-seta {
+    transform: translateX(3px);
+}
+
+/* E-mail: texto legível/copiável, sem aparência de link */
+.agendamento-contato > a:not([href]) {
+    cursor: text;
+}
+
+.agendamento-contato > a:not([href]):hover {
+    padding-left: 5px;
+    background: transparent;
+}
+
+.agendamento-contato > a:not([href]) .contato-seta {
+    visibility: hidden;
+}
+
+/* ========================================
+   RODAPÉ
+======================================== */
+footer {
+    padding: 68px 30px 25px;
+    background: var(--cor-footer);
+    color: #fff;
+}
+
+.footer-conteudo {
+    max-width: var(--largura);
+    margin: 0 auto;
+    padding-bottom: 55px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.3fr;
+    gap: 55px;
+}
+
+.footer-marca h3 {
+    margin-bottom: 13px;
+    color: #fff;
+    font-size: 21px;
+    font-weight: 500;
+}
+
+.footer-marca p {
+    color: #c9c4c1;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.footer-links,
+.footer-redes {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.footer-links a,
+.footer-redes a {
+    color: #c9c4c1;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 1.5;
+    transition: color 0.25s ease;
+}
+
+.footer-links a:hover,
+.footer-redes a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    max-width: var(--largura);
+    margin: 0 auto;
+    padding-top: 23px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-bottom p {
+    color: #98928f;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+@media (max-width: 900px) {
+    nav {
+        min-height: 76px;
+        flex-wrap: wrap;
+        padding: 14px 25px;
+        gap: 12px 20px;
+    }
+
+    .menu {
+        order: 3;
+        width: 100%;
+        padding-bottom: 2px;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 72px 25px 82px;
+    }
+
+    .hero-conteudo {
+        grid-template-columns: 1fr;
+        gap: 52px;
+        text-align: center;
+    }
+
+    .hero-texto,
+    .hero-descricao {
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-imagem img {
+        max-width: 440px;
+        height: 520px;
+        transform: none;
+    }
+
+    .sobre {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        padding: 90px 25px;
+    }
+
+    .sobre-imagem {
+        order: 1;
+    }
+
+    .sobre-texto {
+        order: 2;
+        max-width: 680px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .especialidades,
+    .duvidas,
+    .agendamento {
+        padding: 90px 25px;
+    }
+
+    .especialidades-cards {
+        max-width: 650px;
+    }
+
+    .agendamento-conteudo {
+        grid-template-columns: 1fr;
+        max-width: 700px;
+        gap: 55px;
+    }
+
+    .agendamento-texto {
+        max-width: 100%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .footer-conteudo {
+        grid-template-columns: 1fr 1fr;
+        gap: 45px;
+    }
+
+    .footer-marca {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ========================================
+   CELULAR
+======================================== */
+@media (max-width: 600px) {
+    html {
+        scroll-padding-top: 135px;
+    }
+
+    nav {
+        justify-content: center;
+        padding: 13px 18px 10px;
+    }
+
+    .logo {
+        width: 100%;
+        text-align: center;
+        font-size: 17px;
+    }
+
+    nav > .botao {
+        display: none;
+    }
+
+    .menu {
+        gap: 10px 15px;
+    }
+
+    .menu a {
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 58px 20px 65px;
+    }
+
+    .hero-conteudo {
+        gap: 42px;
+    }
+
+    .subtitulo {
+        margin-bottom: 15px;
+        font-size: 11px;
+        letter-spacing: 1.8px;
+    }
+
+    .hero h1 {
+        margin-bottom: 20px;
+        font-size: 40px;
+        letter-spacing: -1.2px;
+    }
+
+    .hero-descricao {
+        font-size: 15px;
+        line-height: 1.75;
+    }
+
+    .hero-imagem img {
+        width: 100%;
+        height: 430px;
+    }
+
+    .sobre {
+        padding: 72px 20px;
+        gap: 45px;
+    }
+
+    .sobre-imagem img {
+        height: 430px;
+    }
+
+    .sobre-texto h2 {
+        margin-bottom: 23px;
+        font-size: 33px;
+    }
+
+    .sobre-texto p:not(.subtitulo) {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .especialidades,
+    .duvidas,
+    .agendamento {
+        padding: 72px 20px;
+    }
+
+    .especialidades-cabecalho {
+        margin-bottom: 42px;
+    }
+
+    .especialidades-cabecalho h2,
+    .duvidas-cabecalho h2 {
+        font-size: 33px;
+    }
+
+    .especialidades-cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .especialidade-card {
+        min-height: auto;
+        padding: 34px 27px;
+    }
+
+    .especialidade-card h3 {
+        font-size: 23px;
+    }
+
+    .especialidade-card p {
+        font-size: 14px;
+    }
+
+    .destaque {
+        min-height: 480px;
+        padding: 78px 20px;
+    }
+
+    .destaque h2 {
+        font-size: 37px;
+        letter-spacing: -0.8px;
+    }
+
+    .destaque-conteudo > p:not(.subtitulo) {
+        font-size: 15px;
+    }
+
+    .duvidas-cabecalho {
+        margin-bottom: 42px;
+    }
+
+    .faq-pergunta {
+        padding: 22px 0;
+        font-size: 15px;
+    }
+
+    .faq-resposta p {
+        padding: 0 30px 23px 0;
+        font-size: 14px;
+    }
+
+    .agendamento-texto h2 {
+        font-size: 35px;
+    }
+
+    .agendamento-texto > p:last-child {
+        font-size: 15px;
+    }
+
+    .agendamento-contato > a {
+        grid-template-columns: minmax(0, 1fr) 22px;
+        gap: 5px;
+        padding: 17px 0;
+    }
+
+    .agendamento-contato > a:not([href]):hover {
+        padding-left: 0;
+    }
+
+    .contato-label {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .contato-valor {
+        grid-column: 1;
+        grid-row: 2;
+        margin-top: 4px;
+        font-size: 14px;
+    }
+
+    .contato-seta {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+    }
+
+    .agendamento-contato > a:not([href]) .contato-seta {
+        display: none;
+    }
+
+    footer {
+        padding: 58px 20px 23px;
+    }
+
+    .footer-conteudo {
+        grid-template-columns: 1fr;
+        gap: 34px;
+        padding-bottom: 40px;
+    }
+
+    .footer-marca {
+        grid-column: auto;
+        text-align: center;
+    }
+
+    .footer-links,
+    .footer-redes {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* =========================================================
+   REFINAMENTO FINAL — VISUAL E DIAGRAMAÇÃO
+   ========================================================= */
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+header {
+    height: 78px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+header nav {
+    height: 78px;
+    max-width: 1280px;
+    padding: 0 35px;
+}
+
+.logo {
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    white-space: nowrap;
+}
+
+.menu {
+    gap: 34px;
+}
+
+.menu a {
+    position: relative;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    padding: 8px 0;
+    transition: color 0.25s ease;
+}
+
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: #8b6f61;
+    transition: width 0.25s ease;
+}
+
+.menu a:hover {
+    color: #8b6f61;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+.botao {
+    padding: 12px 22px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 25px;
+    letter-spacing: 0.1px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.botao:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(139, 111, 97, 0.18);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    min-height: calc(100vh - 78px);
+    padding: 75px 35px 90px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-conteudo {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    grid-template-columns: minmax(0, 0.9fr) minmax(400px, 0.85fr);
+    gap: 80px;
+    align-items: center;
+}
+
+.hero-texto {
+    max-width: 620px;
+}
+
+.hero .subtitulo {
+    margin-bottom: 22px;
+    font-size: 13px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 5.2vw, 72px);
+    line-height: 1.04;
+    letter-spacing: -2.5px;
+    font-weight: 500;
+    margin-bottom: 28px;
+}
+
+.hero h1 span {
+    display: block;
+    color: #8b6f61;
+}
+
+.hero-descricao {
+    max-width: 510px;
+    font-size: 18px;
+    line-height: 1.75;
+    color: #666;
+}
+
+.hero-imagem {
+    display: flex;
+    justify-content: center;
+}
+
+.hero-imagem img {
+    width: min(100%, 500px);
+    height: 600px;
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 0 25px 60px rgba(50, 40, 35, 0.12);
+    transform: translateX(45px);
+}
+
+
+/* =========================================================
+   SOBRE
+   ========================================================= */
+
+.sobre {
+    max-width: 1280px;
+    padding: 125px 35px;
+    gap: 100px;
+    align-items: center;
+}
+
+.sobre-imagem {
+    display: flex;
+    justify-content: center;
+}
+
+.sobre-imagem img {
+    width: min(100%, 480px);
+    height: 580px;
+    object-fit: cover;
+    box-shadow: 0 20px 50px rgba(50, 40, 35, 0.10);
+}
+
+.sobre-texto {
+    max-width: 590px;
+}
+
+.sobre-texto .subtitulo {
+    margin-bottom: 18px;
+}
+
+.sobre-texto h2 {
+    font-size: clamp(36px, 4vw, 50px);
+    line-height: 1.1;
+    letter-spacing: -1.4px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.sobre-texto p:not(.subtitulo) {
+    font-size: 16px;
+    line-height: 1.85;
+    color: #626262;
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   ESPECIALIDADES
+   ========================================================= */
+
+.especialidades {
+    padding: 125px 35px;
+}
+
+.especialidades-cabecalho {
+    max-width: 760px;
+    margin-bottom: 65px;
+}
+
+.especialidades-cabecalho h2 {
+    font-size: clamp(38px, 4vw, 52px);
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    font-weight: 500;
+}
+
+.especialidades-cards {
+    max-width: 1050px;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.especialidade-card {
+    min-height: 330px;
+    padding: 48px 42px;
+    border: 1px solid #e6ddd8;
+    border-radius: 2px;
+    background: #fff;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.especialidade-card:hover {
+    transform: translateY(-6px);
+    border-color: #d4c4bb;
+    box-shadow: 0 18px 45px rgba(50, 40, 35, 0.09);
+}
+
+.especialidade-card h3 {
+    font-size: 25px;
+    line-height: 1.2;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.especialidade-card p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+}
+
+
+/* =========================================================
+   DESTAQUE
+   ========================================================= */
+
+.destaque {
+    min-height: 500px;
+    padding: 100px 35px;
+}
+
+.destaque-conteudo {
+    max-width: 900px;
+}
+
+.destaque h2 {
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: clamp(38px, 5vw, 60px);
+    letter-spacing: -1.5px;
+}
+
+.destaque h2 span {
+    font-size: 0.55em;
+    margin-top: 15px;
+    opacity: 0.9;
+}
+
+.destaque-conteudo > p:not(.subtitulo) {
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   FAQ
+   ========================================================= */
+
+.duvidas {
+    padding: 125px 35px;
+}
+
+.duvidas-conteudo {
+    max-width: 900px;
+}
+
+.duvidas-cabecalho {
+    margin-bottom: 55px;
+}
+
+.duvidas-cabecalho h2 {
+    font-size: clamp(38px, 4vw, 50px);
+    letter-spacing: -1.3px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e5e0dd;
+}
+
+.faq-pergunta {
+    padding: 25px 5px;
+    font-size: 17px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.faq-pergunta:hover {
+    color: #8b6f61;
+}
+
+.faq-icone {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #d8cec8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.faq-item.ativo .faq-icone {
+    background-color: #8b6f61;
+    color: #fff;
+    border-color: #8b6f61;
+}
+
+
+/* =========================================================
+   AGENDAMENTO
+   ========================================================= */
+
+.agendamento {
+    padding: 125px 35px;
+}
+
+.agendamento-conteudo {
+    max-width: 1180px;
+    gap: 90px;
+    align-items: center;
+}
+
+.agendamento-texto {
+    max-width: 510px;
+}
+
+.agendamento-texto h2 {
+    font-size: clamp(38px, 4vw, 52px);
+    line-height: 1.1;
+    letter-spacing: -1.4px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.agendamento-texto > p:last-child {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+}
+
+.agendamento-contato {
+    width: 100%;
+}
+
+.agendamento-contato > a {
+    display: grid;
+    grid-template-columns: 105px 1fr 35px;
+    align-items: center;
+    min-height: 78px;
+    padding: 18px 5px;
+    border-bottom: 1px solid #ded6d1;
+}
+
+.agendamento-contato > a[href] {
+    cursor: pointer;
+}
+
+.agendamento-contato > a[href]:hover {
+    color: #8b6f61;
+    padding-left: 10px;
+}
+
+.agendamento-contato > a:not([href]) {
+    cursor: text;
+}
+
+.agendamento-contato > a:not([href]):hover {
+    color: inherit;
+    padding-left: 5px;
+}
+
+.contato-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: 600;
+}
+
+.contato-valor {
+    font-size: 16px;
+    color: #555;
+    overflow-wrap: anywhere;
+}
+
+.contato-seta {
+    text-align: right;
+    font-size: 20px;
+    transition: transform 0.25s ease;
+}
+
+.agendamento-contato > a[href]:hover .contato-seta {
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+
+footer {
+    padding: 70px 35px 25px;
+}
+
+.footer-conteudo {
+    max-width: 1280px;
+    gap: 70px;
+}
+
+.footer-marca h3 {
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.footer-marca p,
+.footer-redes a,
+.footer-links a {
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.footer-links a {
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #d9c4b8;
+}
+
+.footer-redes {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.footer-bottom {
+    max-width: 1280px;
+    margin: 50px auto 0;
+    padding-top: 22px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    header nav {
+        padding: 0 25px;
+    }
+
+    .menu {
+        gap: 20px;
+    }
+
+    .hero-conteudo {
+        grid-template-columns: 1fr 0.9fr;
+        gap: 45px;
+    }
+
+    .hero-imagem img {
+        height: 520px;
+        transform: translateX(15px);
+    }
+
+    .sobre {
+        gap: 55px;
+    }
+
+    .sobre-imagem img {
+        height: 500px;
+    }
+
+    .agendamento-conteudo {
+        gap: 55px;
+    }
+
+    .footer-conteudo {
+        gap: 35px;
+    }
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    header {
+        height: auto;
+    }
+
+    header nav {
+        min-height: 72px;
+        height: auto;
+        padding: 16px 20px;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .menu {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 18px;
+        padding-top: 5px;
+    }
+
+    .menu a {
+        font-size: 12px;
+    }
+
+    .botao {
+        margin-left: auto;
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 70px 20px 80px;
+    }
+
+    .hero-conteudo {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .hero-texto {
+        max-width: none;
+        text-align: left;
+    }
+
+    .hero h1 {
+        font-size: clamp(43px, 12vw, 58px);
+        letter-spacing: -1.8px;
+    }
+
+    .hero-descricao {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .hero-imagem {
+        justify-content: center;
+    }
+
+    .hero-imagem img {
+        width: 100%;
+        max-width: 480px;
+        height: 500px;
+        transform: none;
+        box-shadow: 0 18px 40px rgba(50, 40, 35, 0.10);
+    }
+
+    .sobre {
+        grid-template-columns: 1fr;
+        padding: 85px 20px;
+        gap: 55px;
+    }
+
+    .sobre-imagem img {
+        width: 100%;
+        max-width: 480px;
+        height: 500px;
+    }
+
+    .sobre-texto {
+        max-width: none;
+    }
+
+    .sobre-texto h2 {
+        font-size: 38px;
+    }
+
+    .sobre-texto p:not(.subtitulo) {
+        font-size: 15px;
+        line-height: 1.75;
+    }
+
+    .especialidades {
+        padding: 85px 20px;
+    }
+
+    .especialidades-cabecalho {
+        margin-bottom: 45px;
+    }
+
+    .especialidades-cabecalho h2 {
+        font-size: 36px;
+    }
+
+    .especialidades-cards {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+
+    .especialidade-card {
+        min-height: auto;
+        padding: 35px 28px;
+    }
+
+    .especialidade-card h3 {
+        font-size: 23px;
+    }
+
+    .destaque {
+        min-height: 460px;
+        padding: 80px 20px;
+    }
+
+    .destaque h2 {
+        font-size: 37px;
+    }
+
+    .destaque-conteudo > p:not(.subtitulo) {
+        font-size: 15px;
+    }
+
+    .duvidas {
+        padding: 85px 20px;
+    }
+
+    .duvidas-cabecalho {
+        margin-bottom: 40px;
+    }
+
+    .duvidas-cabecalho h2 {
+        font-size: 36px;
+    }
+
+    .faq-pergunta {
+        gap: 15px;
+        padding: 22px 0;
+        font-size: 16px;
+        text-align: left;
+    }
+
+    .faq-icone {
+        width: 29px;
+        height: 29px;
+    }
+
+    .agendamento {
+        padding: 85px 20px;
+    }
+
+    .agendamento-conteudo {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .agendamento-texto h2 {
+        font-size: 38px;
+    }
+
+    .agendamento-contato > a {
+        grid-template-columns: 85px 1fr 25px;
+        min-height: 72px;
+    }
+
+    .contato-label {
+        font-size: 10px;
+    }
+
+    .contato-valor {
+        font-size: 14px;
+    }
+
+    footer {
+        padding: 55px 20px 22px;
+    }
+
+    .footer-conteudo {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .footer-bottom {
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    .footer-bottom p {
+        font-size: 11px;
+        line-height: 1.6;
+    }
+}
+
+
+/* =========================================================
+   CELULAR PEQUENO
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+    .logo {
+        font-size: 15px;
+    }
+
+    .botao {
+        font-size: 11px;
+        padding: 9px 13px;
+    }
+
+    .menu {
+        gap: 13px;
+    }
+
+    .menu a {
+        font-size: 11px;
+    }
+
+    .hero {
+        padding-top: 55px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero-imagem img {
+        height: 430px;
+    }
+
+    .sobre-imagem img {
+        height: 430px;
+    }
+
+    .sobre-texto h2,
+    .especialidades-cabecalho h2,
+    .duvidas-cabecalho h2,
+    .agendamento-texto h2 {
+        font-size: 34px;
+    }
+
+    .especialidade-card {
+        padding: 30px 24px;
+    }
+
+    .destaque h2 {
+        font-size: 33px;
+    }
+
+    .agendamento-contato > a {
+        grid-template-columns: 1fr 25px;
+        gap: 8px;
+    }
+
+    .contato-label {
+        grid-column: 1 / -1;
+    }
+
+    .contato-valor {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .contato-seta {
+        grid-column: 2;
+        grid-row: 2;
+    }
+}
+
+/* =========================================================
+   POLIMENTO FINAL
+   ========================================================= */
+
+/* Evita que elementos muito largos criem rolagem horizontal */
+html,
+body {
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   SELEÇÃO DE TEXTO
+   ========================================================= */
+
+::selection {
+    background: #8b6f61;
+    color: #fff;
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE — FOCO PELO TECLADO
+   ========================================================= */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid #8b6f61;
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   IMAGENS
+   ========================================================= */
+
+img {
+    display: block;
+}
+
+
+/* =========================================================
+   LINKS DE CONTATO
+   ========================================================= */
+
+.agendamento-contato > a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.agendamento-contato .contato-item {
+    transition:
+        color 0.25s ease,
+        padding-left 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+/* =========================================================
+   E-MAIL — NÃO CLICÁVEL
+   ========================================================= */
+
+.agendamento-contato > .contato-item:not([href]) {
+    cursor: text;
+}
+
+.agendamento-contato > .contato-item:not([href]) .contato-seta {
+    display: none;
+}
+
+
+/* =========================================================
+   TRANSIÇÕES MAIS SUAVES
+   ========================================================= */
+
+a,
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* =========================================================
+   AJUSTES FINAIS — TELAS PEQUENAS
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    /* Evita que textos longos estourem a tela */
+    h1,
+    h2,
+    h3,
+    p,
+    a,
+    span {
+        overflow-wrap: break-word;
+    }
+
+    /* Melhora a área de toque dos links */
+    .menu a {
+        padding: 6px 2px;
+    }
+
+    /* Imagens não ficam exageradamente altas */
+    .hero-imagem img {
+        max-height: 500px;
+    }
+
+    .sobre-imagem img {
+        max-height: 500px;
+    }
+
+    /* Espaçamento final das seções */
+    .hero,
+    .sobre,
+    .especialidades,
+    .duvidas,
+    .agendamento {
+        scroll-margin-top: 80px;
+    }
+}
+
+
+/* =========================================================
+   CELULARES MUITO PEQUENOS
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    header nav {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .logo {
+        font-size: 14px;
+    }
+
+    .botao {
+        font-size: 10px;
+        padding: 8px 11px;
+    }
+
+    .menu {
+        gap: 9px;
+    }
+
+    .menu a {
+        font-size: 10px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero-descricao {
+        font-size: 15px;
+    }
+
+    .especialidade-card {
+        padding: 27px 21px;
+    }
+
+    .agendamento-contato > .contato-item {
+        padding-left: 0 !important;
+    }
+}
+
+@media (max-width: 700px) {
+
+    nav > .botao {
+        display: inline-flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
